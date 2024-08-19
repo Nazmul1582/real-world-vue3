@@ -1,21 +1,18 @@
 <script setup>
-import { ref } from 'vue'
-const event = ref({
-  id: 123,
-  category: 'animal welfare',
-  title: 'Cat Adoption Day',
-  description: 'Find your new feline friend at this event.',
-  location: 'Meow Town',
-  date: 'January 28, 2022',
-  time: '12:00',
-  organizer: 'Kat Laydee'
+import { defineProps } from 'vue'
+
+const props = defineProps({
+  event: {
+    type: Object,
+    required: true
+  }
 })
 </script>
 
 <template>
   <div class="event-card">
-    <h2>{{ event.title }}</h2>
-    <span>@ {{ event.time }} on {{ event.date }} </span>
+    <h2>{{ props.event.title }}</h2>
+    <span>@ {{ props.event.time }} on {{ props.event.date }} </span>
   </div>
 </template>
 
