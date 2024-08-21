@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import EventCard from '../components/EventCard.vue'
-import axios from 'axios';
+import EventService from '@/services/EventService'
 const events = ref(null)
 onMounted(() => {
   // fetch api call ============
@@ -13,11 +13,15 @@ onMounted(() => {
   //   .catch((error) => console.log(error))
 
   // api call using Axios
-  axios
-    .get('/db.json')
-    .then((data) => events.value = data.data.events)
-    .catch((error) => console.log(error))
+  // axios
+  //   .get('/db.json')
+  //   .then((data) => events.value = data.data.events)
+  //   .catch((error) => console.log(error))
 
+  // using an axios instance
+  EventService.getEvents()
+    .then((response) => events.value = response.data)
+    .catch((error) => console.log(error))
 })
 </script>
 
