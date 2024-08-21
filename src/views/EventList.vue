@@ -1,14 +1,23 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import EventCard from '../components/EventCard.vue'
+import axios from 'axios';
 const events = ref(null)
 onMounted(() => {
-  fetch('/db.json')
-    .then((response) => response.json())
-    .then((data) => {
-      events.value = data.events
-    })
+  // fetch api call ============
+  // fetch('/db.json')
+  //   .then((response) => response.json())
+  //   .then((data) => {
+  //     events.value = data.events
+  //   })
+  //   .catch((error) => console.log(error))
+
+  // api call using Axios
+  axios
+    .get('/db.json')
+    .then((data) => events.value = data.data.events)
     .catch((error) => console.log(error))
+
 })
 </script>
 
