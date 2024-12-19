@@ -1,5 +1,6 @@
 <script setup>
 import { defineProps } from 'vue'
+import { RouterLink } from 'vue-router'
 
 const props = defineProps({
   event: {
@@ -10,10 +11,12 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="event-card">
-    <h2>{{ props.event.title }}</h2>
-    <span>@ {{ props.event.time }} on {{ props.event.date }} </span>
-  </div>
+  <RouterLink to="/event/123">
+    <div class="event-card">
+      <h2>{{ props.event.title }}</h2>
+      <span>@ {{ props.event.time }} on {{ props.event.date }} </span>
+    </div>
+  </RouterLink>
 </template>
 
 <style scroped>
