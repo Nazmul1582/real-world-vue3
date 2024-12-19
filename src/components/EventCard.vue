@@ -11,7 +11,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <RouterLink to="/event/123">
+  <RouterLink :to="`/event/${event.id}`">
     <div class="event-card">
       <h2>{{ props.event.title }}</h2>
       <span>@ {{ props.event.time }} on {{ props.event.date }} </span>

@@ -9,9 +9,12 @@
 <script setup>
 import EventService from '@/services/EventService'
 import { ref, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
+const route = useRoute()
+
 const event = ref(null)
 onMounted(() => {
-  EventService.getEvent(123)
+  EventService.getEvent(route.params.id)
     .then((response) => (event.value = response.data))
     .catch((error) => console.log(error))
 })

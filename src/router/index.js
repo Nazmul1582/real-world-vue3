@@ -18,7 +18,7 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },
     {
-      path: '/event/123',
+      path: '/event/:id', // dynamic segment
       name: 'event-details',
       component: () => import('@/views/EventDetailsView.vue')
     }
