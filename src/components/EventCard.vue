@@ -2,7 +2,7 @@
 import { defineProps } from 'vue'
 import { RouterLink } from 'vue-router'
 
-const props = defineProps({
+defineProps({
   event: {
     type: Object,
     required: true
@@ -11,10 +11,10 @@ const props = defineProps({
 </script>
 
 <template>
-  <RouterLink :to="`/event/${event.id}`">
+  <RouterLink :to="{ name: 'event-details', params: { id: event.id } }">
     <div class="event-card">
-      <h2>{{ props.event.title }}</h2>
-      <span>@ {{ props.event.time }} on {{ props.event.date }} </span>
+      <h2>{{ event.title }}</h2>
+      <span>@ {{ event.time }} on {{ event.date }} </span>
     </div>
   </RouterLink>
 </template>
